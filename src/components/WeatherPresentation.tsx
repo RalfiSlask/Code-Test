@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState } from 'react';
 import useWeatherData from '../hooks/useWeatherData';
 import { IGeoResponse } from '../types/geoTypes';
-import { GEOCODING_BASE_URL } from '../utils/publicAPIs';
 import CurrentDay from './CurrentDay';
 import { SearchPanel } from './SearchPanel';
 import WeeklyForecast from './WeeklyForecast';
@@ -25,7 +24,7 @@ const WeatherPresentation = () => {
     setGeoError(null);
     try {
       const geoResponse = await axios.get(
-        `${GEOCODING_BASE_URL}?name=${city}&count=1&language=en&format=json`
+        `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`
       );
       if (geoResponse.data.results.length === 0) {
         setGeoError('City not found, please try again');
