@@ -1,10 +1,10 @@
-import CloudyIcon from '../assets/images/cloudy.png';
-import RainIcon from '../assets/images/rain.png';
-import ClearIcon from '../assets/images/clear.png';
-import MainlyClear from '../assets/images/mainly-clear.png';
-import CloudIcon from '../assets/images/cloud.png';
+import CloudyIcon from "../assets/images/cloudy.png";
+import RainThunderIcon from "../assets/images/rain-thunder.png";
+import ClearIcon from "../assets/images/clear.png";
+import MainlyClear from "../assets/images/mainly-clear.png";
+import CloudIcon from "../assets/images/cloud.png";
 
-/* SEE weathercodes markdown in root */
+/* SEE weathercodes markdown in documents folder */
 
 export const getWeatherIcon = (weatherCode: number) => {
   if (weatherCode === 0) {
@@ -15,12 +15,8 @@ export const getWeatherIcon = (weatherCode: number) => {
     return CloudyIcon;
   } else if (weatherCode === 3) {
     return CloudIcon;
-  } else if (
-    (weatherCode >= 51 && weatherCode <= 57) ||
-    (weatherCode >= 61 && weatherCode <= 67) ||
-    (weatherCode >= 80 && weatherCode <= 82)
-  ) {
-    return RainIcon;
+  } else if (weatherCode === 95 || weatherCode === 96) {
+    return RainThunderIcon;
   } else {
     return CloudyIcon;
   }
